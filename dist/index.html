@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Simon Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Barlow+Condensed'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="game">
+  <div class="btn-circle">
+    <button v-for="note in notes" :class="`btn btn-${note.buttonColor}`" @click="buttonPressed(note)"></button>
+    <div class="center">
+      <h1 class="brand">Simon</h1>
+      <div class="inline">
+        <div class="counter">{{ counter }}</div>
+        <button class="btn-start" @click="startOrRestart" :disabled="isPlaying">
+          <i class="fa fa-refresh" v-if="hasStarted"></i>
+          <i class="fa fa-play" v-else></i>
+        </button>
+        <label for="strict-mode" class="strict-mode-wrapper">
+          <input type="checkbox" id="strict-mode" v-model="strictMode" >
+          <span>Strict</span>
+        </label>
+      </div>
+    </div>
+  </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

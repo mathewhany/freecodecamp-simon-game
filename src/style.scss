@@ -1,0 +1,123 @@
+$green: #00a74a;
+$red: #9f0f17;
+$yellow: #cca707;
+$blue: #094a8f;
+
+$grey: #333;
+
+@mixin btn-bg-color($color) {
+  background-color: $color;
+  
+  &.btn-active {
+    background: darken($color, 10%);
+  }
+}
+
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+  background: lighten($grey, 3%);
+  color: $grey;
+}
+
+button {
+  font-family: inherit;
+}
+
+.btn-circle {
+  border-radius: 100%;
+  display: flex;
+  background: $grey;
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  top: 10vh;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
+  
+  .btn {
+    width: 47%;
+    height: 47%;
+    border: 0;
+    outline: 0;
+    transition: all .2s linear;
+    cursor: pointer;
+    
+    &.btn-active {
+      box-shadow: 0 0 0;
+    }
+  }
+  
+  .btn-green {
+    border-top-left-radius: 100%;
+    @include btn-bg-color($green);
+  }
+
+  .btn-red {
+    border-top-right-radius: 100%;
+    @include btn-bg-color($red);
+  }
+
+  .btn-yellow {
+    border-bottom-left-radius: 100%;
+    @include btn-bg-color($yellow);
+  }
+
+  .btn-blue {
+    border-bottom-right-radius: 100%;
+    @include btn-bg-color($blue);
+  }
+  
+  .center {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    background: #fff;
+    box-shadow: 5px 6px 3px rgba(0, 0, 0, .2), 0 0 0 20px;
+    border-radius: 100%;
+    
+    .brand {
+      margin-top: 2em;
+    }
+    
+    .inline {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    
+    .counter {
+      padding: 10px;
+      color: #DC0D29;
+      border-radius: 10px;
+      width: 20px;
+      background: #32050C;
+      display: inline;
+    }
+
+    .btn-start {
+      color: #fff;
+      width: 50px;
+      border: 0;
+      background: #9F9;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+      transition: background .3s linear;
+      outline: 0;
+      &:hover {
+        background: #8D8;
+      }
+      &:disabled {
+        opacity: .5;
+      }
+    }
+    
+    .strict-mode-wrapper {
+      span {
+        display: block;
+      }
+    }    
+  }
+}

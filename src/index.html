@@ -1,0 +1,18 @@
+<div id="game">
+  <div class="btn-circle">
+    <button v-for="note in notes" :class="`btn btn-${note.buttonColor}`" @click="buttonPressed(note)"></button>
+    <div class="center">
+      <h1 class="brand">Simon</h1>
+      <div class="inline">
+        <div class="counter">{{ counter }}</div>
+        <button class="btn-start" @click="startOrRestart" :disabled="isPlaying">
+          <i class="fa fa-refresh" v-if="hasStarted"></i>
+          <i class="fa fa-play" v-else></i>
+        </button>
+        <label for="strict-mode" class="strict-mode-wrapper">
+          <input type="checkbox" id="strict-mode" v-model="strictMode" >
+          <span>Strict</span>
+        </label>
+      </div>
+    </div>
+  </div>
